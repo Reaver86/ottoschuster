@@ -28,12 +28,8 @@ jobs:
     - run: npm run lint:prod
     - run: npm run format:check
     - run: npm run e2e:prod
-    - name: Create pull request
-      id: cpr
+    - name: Merge into master
       uses: peter-evans/create-pull-request@v3
       with:
-        commit-message: awesome
         committer: Reaver86 <alexander.schuster86@gmail.com>
         branch: master
-        title: great title
-        draft: false
