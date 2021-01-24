@@ -28,7 +28,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3
       with:
         commit-message: awesome
-        committer: Reaver86
+        committer: alexander.schuster86@gmail.com
         branch: master
         title: great title
         draft: false
