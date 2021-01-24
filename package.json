@@ -1,6 +1,6 @@
 {
   "name": "ottoschuster",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -8,9 +8,13 @@
     "nx": "nx",
     "start": "ng serve",
     "build": "ng build --prod",
+    "scully": "scully",
+    "scully:serve": "scully serve",
     "test": "ng test",
+    "test:prod": "ng test --browsers=ChromeHeadless --watch=false",
     "lint": "nx workspace-lint && ng lint",
-    "e2e": "ng e2e",
+    "e2e": "ng e2e --watch",
+    "e2e:prod": "ng e2e --headless",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -25,9 +29,7 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help",
-    "scully": "scully",
-    "scully:serve": "scully serve"
+    "help": "nx help"
   },
   "private": true,
   "dependencies": {
