@@ -1,7 +1,7 @@
 {
   "npmScope": "ottoschuster",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "dev"
   },
   "implicitDependencies": {
     "angular.json": "*",
@@ -19,12 +19,7 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "ZTFjNTJjZTMtMjA3Ni00NDg3LTg0NTQtZjA0MzU5OGY2ZmY5fHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
@@ -36,9 +31,7 @@
     },
     "frontend-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "frontend"
-      ]
+      "implicitDependencies": ["frontend"]
     }
   }
 }
