@@ -14,13 +14,13 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "ottoschuster",
+            "prefix": "otto",
             "style": "camelCase"
           }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "ottoschuster", "style": "kebab-case" }
+          { "type": "element", "prefix": "otto", "style": "kebab-case" }
         ]
       }
     },
