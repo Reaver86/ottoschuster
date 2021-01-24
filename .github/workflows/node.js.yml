@@ -6,8 +6,6 @@ name: Node.js CI
 on:
   push:
     branches: [ dev ]
-  pull_request:
-    branches: [ dev,master ]
 
 jobs:
   build:
@@ -33,3 +31,6 @@ jobs:
     - name: Create pull request
       id: cpr
       uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.PAT }}
+        commit-message: awesome
