@@ -32,5 +32,8 @@ jobs:
       id: cpr
       uses: peter-evans/create-pull-request@v3
       with:
-        token: ${{ secrets.PAT }}
         commit-message: awesome
+        committer: Reaver86
+        branch: master
+        title: great title
+        draft: false
