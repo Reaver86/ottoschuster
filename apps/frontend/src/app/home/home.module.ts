@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
-    RouterModule.forRoot([{ path: '', component: HomeComponent }]),
+    RouterModule.forChild([{ path: '', component: HomeComponent }]),
     CommonModule,
   ],
 })

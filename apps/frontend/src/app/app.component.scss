@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+
+.text {
+  text-align: center;
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+button.menu {
+  width: 60px;
+  font-size: 1rem;
+  background-color: white;
+  border: 1px solid grey;
+  cursor: pointer;
+
+  & > img {
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: lightgrey;
+  }
+}

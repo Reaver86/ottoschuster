@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { RouterModule, Routes } from '@angular/router';
+import { UiLogoModule } from '@ottoschuster/ui/logo';
 
 const routes: Routes = [
   {
@@ -14,7 +15,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, ScullyLibModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    ScullyLibModule,
+    RouterModule.forRoot(routes),
+    UiLogoModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

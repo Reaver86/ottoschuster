@@ -1,14 +1,9 @@
 {
   "npmScope": "ottoschuster",
-  "affected": {
-    "defaultBase": "dev"
-  },
+  "affected": { "defaultBase": "dev" },
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -26,12 +21,8 @@
     }
   },
   "projects": {
-    "frontend": {
-      "tags": []
-    },
-    "frontend-e2e": {
-      "tags": [],
-      "implicitDependencies": ["frontend"]
-    }
+    "frontend": { "tags": [] },
+    "frontend-e2e": { "tags": [], "implicitDependencies": ["frontend"] },
+    "ui-logo": { "tags": [] }
   }
 }

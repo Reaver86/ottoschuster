@@ -1,8 +1,30 @@
-<h1>Awesome title</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="/bla" routerLinkActive="active">Not implemented</a></li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
+<header>
+  <button class="menu">
+    <img src="assets/menu.svg" alt="Menu" />
+    Menu
+  </button>
+  <div class="text">
+    <h1>
+      Übersetzungsbüro Schuster<br />
+      Deutsch <-> Rumänisch
+    </h1>
+    <p>
+      Öffentlich bestellter und beeidigter Urkundenübersetzer<br />
+      für die rumänische Sprache (Landgericht Rottweil)<br />
+      Dipl.-Ing. Maschinenbau, Dipl.-Gewerbelehrer, beeidigter
+      Urkundenübersetzer
+    </p>
+  </div>
+  <otto-ui-logo></otto-ui-logo>
+</header>
+<main>
+  <nav>
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+      <li>
+        <a routerLink="/bla" routerLinkActive="active">Not implemented</a>
+      </li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</main>
