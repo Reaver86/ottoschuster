@@ -23,6 +23,6 @@
   "projects": {
     "frontend": { "tags": [] },
     "frontend-e2e": { "tags": [], "implicitDependencies": ["frontend"] },
-    "ui-logo": { "tags": [] }
+    "shared-ui-logo": { "tags": [] }
   }
 }

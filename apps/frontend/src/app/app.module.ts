@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { RouterModule, Routes } from '@angular/router';
-import { UiLogoModule } from '@ottoschuster/ui/logo';
+import { SharedUiLogoModule } from '@ottoschuster/shared/ui/logo';
 
 const routes: Routes = [
   {
@@ -16,8 +16,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./kontakt/kontakt.module').then((m) => m.KontaktModule),
   },
-  { path: 'preise', loadChildren: () => import('./preise/preise.module').then(m => m.PreiseModule) },
-  { path: 'impressum', loadChildren: () => import('./impressum/impressum.module').then(m => m.ImpressumModule) },
+  {
+    path: 'preise',
+    loadChildren: () =>
+      import('./preise/preise.module').then((m) => m.PreiseModule),
+  },
+  {
+    path: 'impressum',
+    loadChildren: () =>
+      import('./impressum/impressum.module').then((m) => m.ImpressumModule),
+  },
 ];
 
 @NgModule({
@@ -26,7 +34,7 @@ const routes: Routes = [
     BrowserModule,
     ScullyLibModule,
     RouterModule.forRoot(routes),
-    UiLogoModule,
+    SharedUiLogoModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

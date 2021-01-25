@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'ui-logo',
-  preset: '../../../jest.preset.js',
+  displayName: 'shared-ui-logo',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../coverage/libs/ui/logo',
+  coverageDirectory: '../../../../coverage/libs/shared/ui/logo',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ottoschuster/ui/logo": ["libs/ui/logo/src/index.ts"]
+      "@ottoschuster/shared/ui/logo": ["libs/shared/ui/logo/src/index.ts"]
     }
   },
   "angularCompilerOptions": {

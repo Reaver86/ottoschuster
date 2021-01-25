@@ -120,26 +120,26 @@
         }
       }
     },
-    "ui-logo": {
+    "shared-ui-logo": {
       "projectType": "library",
-      "root": "libs/ui/logo",
-      "sourceRoot": "libs/ui/logo/src",
+      "root": "libs/shared/ui/logo",
+      "sourceRoot": "libs/shared/ui/logo/src",
       "prefix": "otto",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/ui/logo/src/**/*.ts",
-              "libs/ui/logo/src/**/*.html"
+              "libs/shared/ui/logo/src/**/*.ts",
+              "libs/shared/ui/logo/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/logo"],
+          "outputs": ["coverage/libs/shared/ui/logo"],
           "options": {
-            "jestConfig": "libs/ui/logo/jest.config.js",
+            "jestConfig": "libs/shared/ui/logo/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -169,7 +169,8 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "prefix": "otto"
     }
   },
   "defaultProject": "frontend"
