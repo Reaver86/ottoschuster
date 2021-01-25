@@ -20,6 +20,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Awesome title');
+    expect(compiled.querySelector('h1').textContent).toContain(
+      'Übersetzungsbüro Schuster'
+    );
   });
 });
