@@ -12,13 +12,12 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'preise',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
-  },
-  {
     path: 'kontakt',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+    loadChildren: () =>
+      import('./kontakt/kontakt.module').then((m) => m.KontaktModule),
   },
+  { path: 'preise', loadChildren: () => import('./preise/preise.module').then(m => m.PreiseModule) },
+  { path: 'impressum', loadChildren: () => import('./impressum/impressum.module').then(m => m.ImpressumModule) },
 ];
 
 @NgModule({
