@@ -3,16 +3,51 @@
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid black;
-  padding: 5px;
   background-image: url('../assets/Muntii_Bucegi.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   height: 300px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    display: flex;
+    gap: 5px;
+  }
+
+  .phone {
+    margin-left: auto;
+    padding: 10px;
+    background-color: #2068e7;
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+
+    &:hover,
+    &:focus {
+      background-color: white;
+    }
+  }
 }
 
 .text {
@@ -46,6 +81,6 @@ button.menu {
 
   &:hover,
   &:focus {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: white;
   }
 }
