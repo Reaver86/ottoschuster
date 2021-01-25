@@ -17,6 +17,9 @@ header {
 
 .text {
   text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
 
   h1,
   p {
@@ -30,16 +33,19 @@ header {
 
 button.menu {
   width: 60px;
-  font-size: 1rem;
-  background-color: white;
-  border: 1px solid grey;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
 
   & > img {
     width: 100%;
   }
 
-  &:hover {
-    background-color: lightgrey;
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.3);
   }
 }
