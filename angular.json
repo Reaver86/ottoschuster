@@ -53,12 +53,15 @@
                   "with": "apps/frontend/src/environments/environment.prod.ts"
                 }
               ],
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "sourceMap": false,
+              "optimization": true,
+              "namedChunks": false,
               "outputHashing": "all"
             },
-            "development": {
-            }
-          },
-          "defaultConfiguration": "production"
+            "development": {}
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
