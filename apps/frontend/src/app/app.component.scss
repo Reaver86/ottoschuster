@@ -3,6 +3,8 @@
 }
 
 header {
+  position: sticky;
+  top: -203px;
   background-image: url('../assets/Muntii_Bucegi.jpg');
   background-size: cover;
   background-position: top center;
@@ -17,14 +19,16 @@ main {
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-gap: 10px;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 5px;
 }
 
 nav {
-  padding: 0 10px;
+  padding: 0 5px;
 
   ul {
     list-style: none;
@@ -42,6 +46,10 @@ nav {
     background-color: rgba(white, 0.6);
     display: inline-block;
     outline: none;
+
+    &.active {
+      background-color: white;
+    }
 
     &:hover,
     &:focus {
@@ -80,6 +88,9 @@ nav {
 }
 
 .text {
+  grid-column: 2;
+  justify-self: center;
+
   text-align: center;
   padding: 10px;
   border-radius: 10px;
@@ -103,6 +114,7 @@ button.menu {
   background-color: transparent;
   border: none;
   outline: none;
+  text-transform: uppercase;
 
   & > img {
     width: 100%;
