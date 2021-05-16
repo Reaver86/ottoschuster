@@ -9,7 +9,7 @@ header {
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
-  height: 250px;
+  min-height: 250px;
   display: grid;
   grid-template-rows: 1fr auto;
 }
@@ -34,8 +34,9 @@ nav {
     list-style: none;
     margin: 0;
     padding-left: 0;
-    display: flex;
-    gap: 5px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto auto auto auto 1fr auto;
   }
 
   a {
@@ -46,6 +47,8 @@ nav {
     background-color: rgba(white, 0.6);
     display: inline-block;
     outline: none;
+    width: 100%;
+    text-align: center;
 
     &.active {
       background-color: white;
@@ -79,6 +82,7 @@ nav {
     & > a {
       background-color: #2068e7;
       color: white;
+      white-space: nowrap;
 
       &:hover,
       &:focus {
@@ -107,22 +111,79 @@ nav {
   }
 }
 
-button.menu {
-  width: 60px;
+.menu {
+  display: none;
+}
+
+.menu button {
   cursor: pointer;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: transparent;
+  padding: 4px;
+  background-color: rgba(white, 0.6);
   border: none;
   outline: none;
   text-transform: uppercase;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
 
   & > img {
-    width: 100%;
+    width: 30px;
+    height: 30px;
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: white;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr;
+
+    .text {
+      grid-column: 1;
+    }
+  }
+
+  otto-shared-ui-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    top: 0;
+  }
+
+  nav ul {
+    grid-template-columns: 1fr auto auto;
+    margin-top: 30px;
+
+    li {
+      grid-column: -1/1;
+
+      &.menu {
+        grid-row: 1;
+        grid-column: 1;
+        display: list-item;
+      }
+
+      &.language {
+        grid-row: 1;
+        grid-column: 2;
+      }
+
+      &.phone {
+        grid-row: 1;
+        grid-column: 3;
+      }
+
+      &.impressum {
+        margin-bottom: 5px;
+      }
+    }
   }
 }

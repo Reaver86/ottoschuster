@@ -1,9 +1,5 @@
 <header>
   <div class="container">
-    <!--    <button class="menu">-->
-    <!--      <img src="assets/menu.svg" alt="Menu" />-->
-    <!--      Menü-->
-    <!--    </button>-->
     <div class="text">
       <h1>
         Übersetzungsbüro Schuster<br />
@@ -19,18 +15,26 @@
   </div>
   <nav>
     <ul>
-      <li>
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <li class="menu">
+        <button (click)="menuOpen = !menuOpen">
+          <img src="assets/menu.svg" alt="" aria-hidden="true" />
+          Menü
+        </button>
       </li>
-      <li>
-        <a routerLink="/preise" routerLinkActive="active">Preise</a>
-      </li>
-      <li>
-        <a routerLink="/kontakt" routerLinkActive="active">Kontakt</a>
-      </li>
-      <li>
-        <a routerLink="/impressum" routerLinkActive="active">Impressum</a>
-      </li>
+      <ng-container *ngIf="menuOpen">
+        <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuOpen = false">Home</a>
+        </li>
+        <li>
+          <a routerLink="/preise" routerLinkActive="active" (click)="menuOpen = false">Preise</a>
+        </li>
+        <li>
+          <a routerLink="/kontakt" routerLinkActive="active" (click)="menuOpen = false">Kontakt</a>
+        </li>
+        <li class="impressum">
+          <a routerLink="/impressum" routerLinkActive="active" (click)="menuOpen = false">Impressum</a>
+        </li>
+      </ng-container>
       <li class="language">
         <button>
           <img src="assets/deutschland_flagge.jpg" alt="Deutschlandflagge" />
