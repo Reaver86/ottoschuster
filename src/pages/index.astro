@@ -1,22 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from "../components/Header.astro";
+import {Image} from "astro:assets";
+import rumänischeBerge from '../images/muntii-bucegi.webp'
+import otto from '../images/otto.webp'
 ---
-
 <Layout title="Übersetzungsbüro Schuster">
 	<Header />
 	<main>
-
+		<Image class="img-bg" src={rumänischeBerge} alt="Muntii Bucegi" widths={[500, rumänischeBerge.width]}></Image>
+		<div class="content">
+			<Image class="img-otto" src={otto} alt="Otto Schuster" width="300"></Image>
+			<h2>Öffentlich bestellter und beeidigter Urkundenübersetzer der rumänischen Sprache</h2>
+			<p>Zulassung als Übersetzer: Protokoll über die Beeidigung als Urkundenübersetzer aus dem Jahr 1993 (pdf-Datei), bzw.
+				Bestätigung des Landgerichtes Rottweil: Bestätigung des Landgerichtes Rottweil über die Beeidigung als Urkundenübersetzer.</p>
+			<p>Sie finden mich auch unter www.justiz-dolmetscher.de oder www.gerichts-dolmetscher.de - der seit Jahresbeginn 2010 existierenden bundesweiten Dolmetscher- und Übersetzerdatenbank (DÜD). Klicken Sie dort auf "Dolmetscher und Übersetzer suchen", geben Sie Schuster und Otto ein, klicken Sie auf "Suchen" und danach auf "Schuster".</p>
+			<p>Dipl.-Ing., Dipl.-Gewerbelehrer,
+				beeidigter Urkundenübersetzer Otto Schuster</p>
+		</div>
 	</main>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		font-size: 20px;
-		line-height: 1.6;
+		//margin-top: 75px;
 	}
+	.img-bg {
+		width: 100vw;
+		object-fit: cover;
+	}
+	.img-otto {
+		float: left;
+	}
+	.content {
+		margin-inline: auto;
+		max-width: var(--max-width-content);
+	}
+
 </style>
