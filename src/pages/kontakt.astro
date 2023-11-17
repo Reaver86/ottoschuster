@@ -1,13 +1,49 @@
 ---
 
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
+
+import {Image} from "astro:assets";
+import visitenkarte from '../images/visitenkarte.webp';
 
 ---
 
 <Layout title="Kontakt ottoschuster.de">
-    <Header />
-    <main>
+    <section class="content" style="margin-top: 75px">
+        <h2 class="fs-5">Kontakt</h2>
+        <address>
+            Übersetzungsbüro Schuster
+            Eva-Zeisel-Str. 4<br/>
+            78713 Schramberg<br/>
+            Deutschland<br/>
+            <br/>
+            Tel. Festnetz:	07422-567820<br/>
+            Handy:	0176-62712091 (WhatsApp)<br/>
+            bitte rufen Sie mich nach 16:00 an,<br/>
+            davor bin ich schlecht erreichbar.<br/>
+            <br/>
+            Fax.: +49/(0)3212-1468246<br/>
+            wird als pdf-Datei auf meine E-Mail Adresse weitergeleitet<br/>
+            <br/>
+            E-Mail:	otto.schuster@ottoschuster.de<br/>
+            USt-IdNr.:	DE305288111<br/>
+        </address>
 
-    </main>
+    </section>
+    <section class="content mt-10">
+        <h2>Karte von Schramberg-Sulgen</h2>
+    </section>
+    <section class="content">
+        <h2>Visitenkarte zum Ausdrucken</h2>
+        <Image src={visitenkarte} alt="Visitenkarte" width="500" class="img-visitienkarte" />
+    </section>
 </Layout>
+
+<style>
+    address {
+        font-size: 1.3rem;
+    }
+    .img-visitienkarte {
+        max-width: 100%;
+        object-fit: contain;
+    }
+</style>

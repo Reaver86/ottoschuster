@@ -1,4 +1,6 @@
 ---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 interface Props {
 	title: string;
 }
@@ -20,25 +22,23 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
 <style is:global>
 	:root {
 		--max-width-content: 1200px;
 
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
+		--accent: hotpink;
 		);
 	}
 	html {
 		font-family: 'Zilla Slab', serif;
+		font-size: clamp(1.2rem, 2vw - 2rem, 2.5rem);
 	}
 	body {
 		text-rendering: optimizeSpeed;
@@ -46,7 +46,7 @@ const { title } = Astro.props;
 	}
 	h2 {
 		font-weight: 400;
-		padding-block: 4px 12px;
+		padding-block: 20px 12px;
 	}
 	* {
 		margin: 0;
@@ -55,7 +55,33 @@ const { title } = Astro.props;
 	.fw-normal {
 		font-weight: 400;
 	}
+	.fs-2 {
+		font-size: 1.2rem;
+	}
+	.fs-5 {
+		font-size: 2rem;
+	}
+	.sr-only {
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
+	}
+	.content {
+		margin-inline: auto;
+		max-width: var(--max-width-content);
+		padding-inline: 12px;
+	}
 	.mt-1 {
-		margin-block-start: 4px;
+		margin-top: 4px;
+	}
+	.mt-3 {
+		margin-top: 12px;
+	}
+	.mt-10 {
+		margin-top: 40px;
 	}
 </style>
