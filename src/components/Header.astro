@@ -5,7 +5,8 @@ import rumänienFlagge from "../images/rumänien_flagge.webp";
 
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-const localeIsGerman = true;
+const localeIsRomanian = Astro.url.pathname.includes("/ro/");
+const pathWithoutLocale = Astro.url.pathname.split("/")[2];
 ---
 
 <header>
@@ -15,8 +16,8 @@ const localeIsGerman = true;
     <div class="language-switcher">
       <a
         id="de"
-        class:list={[{ active: localeIsGerman }]}
-        href={getRelativeLocaleUrl("de", "")}
+        class={!localeIsRomanian ? "active" : ""}
+        href={getRelativeLocaleUrl("de", pathWithoutLocale)}
         ><Image
           src={deutschlandFlagge}
           alt="Zu deutscher Sprache wechseln"
@@ -25,8 +26,8 @@ const localeIsGerman = true;
       >
       <a
         id="ro"
-        class:list={[{ active: !localeIsGerman }]}
-        href={getRelativeLocaleUrl("ro", "")}
+        class={localeIsRomanian ? "active" : ""}
+        href={getRelativeLocaleUrl("ro", pathWithoutLocale)}
         ><Image
           src={rumänienFlagge}
           alt="Zu rumänischer Sprache wechseln"
@@ -38,19 +39,28 @@ const localeIsGerman = true;
     <nav>
       <ul>
         <li>
-          <a href={getRelativeLocaleUrl(localeIsGerman ? "de" : "ro", "")}
+          <a
+            class={pathWithoutLocale === "" ? "active" : ""}
+            href={getRelativeLocaleUrl(localeIsRomanian ? "ro" : "de", "")}
             >Startseite</a
           >
         </li>
         <li>
-          <a href={getRelativeLocaleUrl(localeIsGerman ? "de" : "ro", "preise")}
-            >Preise</a
+          <a
+            class={pathWithoutLocale === "preise" ? "active" : ""}
+            href={getRelativeLocaleUrl(
+              pathWithoutLocale === "preise" ? "ro" : "de",
+              "preise",
+            )}>Preise</a
           >
         </li>
         <li>
           <a
-            href={getRelativeLocaleUrl(localeIsGerman ? "de" : "ro", "kontakt")}
-            >Kontakt</a
+            class={pathWithoutLocale === "kontakt" ? "active" : ""}
+            href={getRelativeLocaleUrl(
+              pathWithoutLocale === "kontakt" ? "ro" : "de",
+              "kontakt",
+            )}>Kontakt</a
           >
         </li>
       </ul>
@@ -110,7 +120,8 @@ const localeIsGerman = true;
     font-size: 14px;
   }
 
-  nav a:hover {
+  nav a:hover,
+  nav a.active {
     color: #000;
   }
 
@@ -127,7 +138,8 @@ const localeIsGerman = true;
     transition: all ease-in-out 250ms;
   }
 
-  nav a:hover::before {
+  nav a:hover::before,
+  nav a.active::before {
     width: 100%;
   }
 </style>
