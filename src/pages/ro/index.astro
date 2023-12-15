@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Faq from "../../components/Faq.astro";
+
+import {Image} from "astro:assets";
+import rumänischeBerge from '../../images/muntii-bucegi.webp'
+import otto from '../../images/otto.webp'
+import Check from "../../components/Check.astro";
+---
+<Layout title="Übersetzungsbüro Schuster">
+	<Image class="img-bg" src={rumänischeBerge} alt="Muntii Bucegi" widths={[500, rumänischeBerge.width]}></Image>
+	<section class="content">
+		<Image class="img-otto" src={otto} alt="Otto Schuster" width="300"></Image>
+		<h2>Traducător public autorizat pentru limba română</h2>
+		<p>Zulassung als Übersetzer: Protokoll über die Beeidigung als Urkundenübersetzer aus dem Jahr 1993 (pdf-Datei), bzw.
+			Bestätigung des Landgerichtes Rottweil: Bestätigung des Landgerichtes Rottweil über die Beeidigung als Urkundenübersetzer.</p>
+		<p>Sie finden mich auch unter www.justiz-dolmetscher.de oder www.gerichts-dolmetscher.de - der seit Jahresbeginn 2010 existierenden bundesweiten Dolmetscher- und Übersetzerdatenbank (DÜD). Klicken Sie dort auf "Dolmetscher und Übersetzer suchen", geben Sie Schuster und Otto ein, klicken Sie auf "Suchen" und danach auf "Schuster".</p>
+		<p style="clear:left" class="fs-2">Dipl.-Ing., Dipl.-Gewerbelehrer,
+			beeidigter Urkundenübersetzer Otto Schuster</p>
+
+		<Check text="Gerne übersetze ich Ihre Urkunden, Diplome, Ledigkeitsbescheinigungen, Arbeitsbücher, Bestätigungen, Scheidungsurteile, Verträge oder sonstige Dokumente aus dem Rumänischen ins Deutsche oder umgekehrt." />
+		<Check text="Meine beglaubigten Übersetzungen werden in ganz Deutschland bei allen Behörden bzw. bei den Auslandsvertretungen Rumäniens (z.B. Konsulaten oder Botschaft) akzeptiert." />
+	</section>
+	<section class="content">
+		<h2>Kurze Biographie</h2>
+		<p>Als Rumäniendeutscher ist Deutsch meine Muttersprache. Bis einschließlich Abitur habe ich nur deutsche Schulen besucht (d.h. alle Fächer auf Deutsch, Rumänisch ab 2. Klasse ca. 4 Stunden pro Woche) und somit beherrsche ich die deutsche Sprache sowohl mündlich als auch schriftlich.</p>
+		<p>Nach meinem Abitur studierte ich 5 Jahre Maschinenbau, dies in rumänischer Sprache, somit beherrsche ich auch Rumänisch mündlich und schriftlich.</p>
+		<p>Im Jahr 1990 siedelte ich mit meiner Familie in die Bundesrepublik Deutschland über und am 25.05.1993 wurde ich vom Präsidenten des Landgerichtes Offenburg zum öffentlich bestellten und beeidigten Urkundenübersetzer für die rumänische Sprache ernannt. Seit 1997 arbeite ich als wissenschaftlicher Lehrer am Berufsschulzentrum Berufliche Schulen Schramberg. Das Übersetzungsbüro betreibe ich nebenher.</p>
+	</section>
+	<section class="content mt-3">
+		<h2 class="sr-only">Häufig gestellte Fragen</h2>
+		<Faq icon="question" title="Wie kommen Ihre Dokumente zu mir?">
+			<ul>
+				<li>per e-Mail, als Datei-Anhang</li>
+				<li>Foto und per WhatsApp auf meine Handy-Nr.</li>
+				<li>per Fax, bitte vermeiden, da die Faxqualität im Vergleich zum Scan nicht besonders gut ist</li>
+				<li>per Post (Originale bitte mit Einschreiben oder Einwurfeinschreiben)</li>
+				<li>Zur Erleichterung für Sie, habe ich eine Auftragserteilung als pdf-Datei vorbereitet: Auftragserteilung als pdf-Datei</li>
+				<li>Sie können die Datei direkt am Bildschirm ausfüllen (je nach Browser) oder lokal speichern und dann ausfüllen und drucken, unterschreiben und zusammen mit den Dokumenten zu mir schicken.</li>
+				<li>Sie kommen persönlich in mein Büro, bzw. werfen die Dokumente in meinen Briefkasten</li>
+				<li>wir klären alles am Telefon, dabei können wir auch Rumänisch sprechen (putem vorbi in limba romana).</li>
+			</ul>
+		</Faq>
+		<Faq icon="question" title="Wie erhalten Sie die Übersetzungen sowie Ihre Dokumente?">
+			<ul>
+				<li>per Post im DIN-A4 Umschlag, falls Sie mir Originale zugeschickt haben, schicke ich sie wieder per Einschreiben zurück</li>
+				<li>ich hefte die Übersetzung und Ihre Vorlage (bzw. Scan nach dem Original) zusammen und vermerke auf der Übersetzung, dass ich nach dem Original bzw. nach der angehefteten Vorlage übersetzt habe</li>
+				<li>Sie erhalten eine ordentliche Rechnung, gemäß meiner Preise</li>
+				<li>ich garantiere Ihnen eine korrekte Übersetzung, eine einwandfreie Formatierung der Dokumente sowei einen Ausdruck mit einem hochwertigen Laserdrucker.</li>
+				<li>Ich verwende die Schriftart Times New Roman, da es eine Serifenschrift ist und es keine Verwechselungen bei manchen Buchstaben gibt (Bsp. jeweils großes I und kleines L: Schriftart Arial: I, l; Schriftart Times New Roman: I, l</li>
+				<li>Sehen Sie selbst:So sehen die Übersetzungen aus (pdf)</li>
+			</ul>
+		</Faq>
+		<Faq icon="exclamation" title="Dauer">
+			<ul>
+				<li>je nach Auftragslage brauche ich in der Regel 2 bis 5 Arbeitstage.</li>
+			</ul>
+		</Faq>
+		<Faq icon="exclamation" title="Hinweis">
+			<ul>
+				<li>Alle Preise sind inklusive Beglaubigung, hinzu kommt noch 1,55 Euro Briefmarke plus 19% MwSt.</li>
+				<li>Anmerkung: meine Übersetzungen aus der Deutschen in die Rumänische Sprache sind in der rumänischen Botschaft oder Konsulaten in Deutschland gültig, in Rumänien kann es sein, dass sie nicht akzeptiert werden. Bitte fragen Sie dort nach. (Kann ich für Sie übernehmen, falls Sie nicht ausreichend Rumänisch sprechen). (Im Zusammenhang mit der Deportationssache gibt es keine Probleme mit meinen Übersetzungen) Umgekehrt ist es genau so: in Rumänien angefertigte deutsche Übersetzungen werden in Deutschland nicht unbedingt akzeptiert</li>
+				<li>Manche Behörden verlangen eine Übersetzung nach dem Original, in diesem Fall müssen Sie mir die Originale schicken bzw. ein kleines Video (Vorderseite und Rückseite bzw. alle Seiten).</li>
+			</ul>
+		</Faq>
+		<Faq icon="exclamation" title="Besonderer Service">
+			<ul>
+				<li>sollten Sie mal ein Dokument verlegt haben, können Sie auch nach vielen Jahren ein Duplikat anfordern. Preis: siehe Preisliste</li>
+				<li>sofern ich Ihre e-Mail Adresse habe, erhalten Sie, außer der Übersetzung in Papierform, automatisch eine pdf-Datei der Übersetzung mit Stempel und Unterschrift zum selbst Ausdrucken bzw. Archivieren</li>
+			</ul>
+		</Faq>
+	</section>
+</Layout>
+
+<style>
+	.img-bg {
+		width: 100vw;
+		object-fit: cover;
+	}
+	.img-otto {
+		float: left;
+	}
+	p {
+		text-wrap: balance;
+	}
+	p + p {
+		margin-top: 16px;
+	}
+</style>

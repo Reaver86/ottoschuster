@@ -1,97 +1,133 @@
 ---
-import {Image} from "astro:assets";
-import deutschlandFlagge from '../images/deutschland_flagge.webp'
-import rumänienFlagge from '../images/rumänien_flagge.webp'
+import { Image } from "astro:assets";
+import deutschlandFlagge from "../images/deutschland_flagge.webp";
+import rumänienFlagge from "../images/rumänien_flagge.webp";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const localeIsGerman = true;
 ---
 
 <header>
-    <div class="content">
-        <h1 class="fw-normal">Übersetzungsbüro Schuster</h1>
+  <div class="content">
+    <h1 class="fw-normal">Übersetzungsbüro Schuster</h1>
 
-        <div class="language-switcher">
-            <Image src={deutschlandFlagge} alt="Zu deutscher Sprache wechseln" width="50" />
-            <Image src={rumänienFlagge} alt="Zu rumänischer Sprache wechseln" width="50" />
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="/">Startseite</a></li>
-                <li><a href="/preise">Preise</a></li>
-                <li><a href="/kontakt">Kontakt</a></li>
-            </ul>
-        </nav>
+    <div class="language-switcher">
+      <a
+        id="de"
+        class:list={[{ active: localeIsGerman }]}
+        href={getRelativeLocaleUrl("de", "")}
+        ><Image
+          src={deutschlandFlagge}
+          alt="Zu deutscher Sprache wechseln"
+          width="50"
+        /></a
+      >
+      <a
+        id="ro"
+        class:list={[{ active: !localeIsGerman }]}
+        href={getRelativeLocaleUrl("ro", "")}
+        ><Image
+          src={rumänienFlagge}
+          alt="Zu rumänischer Sprache wechseln"
+          width="50"
+        /></a
+      >
     </div>
+
+    <nav>
+      <ul>
+        <li>
+          <a href={getRelativeLocaleUrl(localeIsGerman ? "de" : "ro", "")}
+            >Startseite</a
+          >
+        </li>
+        <li>
+          <a href={getRelativeLocaleUrl(localeIsGerman ? "de" : "ro", "preise")}
+            >Preise</a
+          >
+        </li>
+        <li>
+          <a
+            href={getRelativeLocaleUrl(localeIsGerman ? "de" : "ro", "kontakt")}
+            >Kontakt</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <style>
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        border-bottom: 1px solid var(--accent);
-        background-color: white;
-    }
-    .content {
-        margin-inline: auto;
-        max-width: var(--max-width-content);
-        padding: 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .language-switcher {
-        align-items: end;
-        display: flex;
-        gap: 4px;
-    }
-    ul {
-        display: flex;
-        gap: 1em;
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--accent);
+    background-color: white;
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .language-switcher {
+    align-items: end;
+    display: flex;
+    gap: 4px;
 
-        & li {
-            list-style: none;
-        }
+    & .active {
+      border: 2px solid black;
     }
-    nav ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+  }
+  ul {
+    display: flex;
+    gap: 1em;
+
+    & li {
+      list-style: none;
     }
+  }
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-    nav li {
-        display: inline-block;
-        margin-left: 40px;
-        padding-top: 23px;
+  nav li {
+    display: inline-block;
+    margin-left: 40px;
+    padding-top: 23px;
 
-        position: relative;
-    }
+    position: relative;
+  }
 
-    nav a {
-        color: black;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 14px;
-    }
+  nav a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
 
-    nav a:hover {
-        color: #000;
-    }
+  nav a:hover {
+    color: #000;
+  }
 
-    nav a::before {
-        content: '';
-        display: block;
-        height: 5px;
-        background-color: var(--accent);
+  nav a::before {
+    content: "";
+    display: block;
+    height: 5px;
+    background-color: var(--accent);
 
-        position: absolute;
-        top: 0;
-        width: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
 
-        transition: all ease-in-out 250ms;
-    }
+    transition: all ease-in-out 250ms;
+  }
 
-    nav a:hover::before {
-        width: 100%;
-    }
+  nav a:hover::before {
+    width: 100%;
+  }
 </style>
