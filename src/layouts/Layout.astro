@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
 interface Props {
   title: string;
 }
@@ -32,65 +33,66 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
-  </body><style is:global>
-    :root {
-      --max-width-content: 1200px;
-      --accent: hotpink;
-    }
-    html {
-      font-family: "Zilla Slab", serif;
-      font-size: clamp(1.2rem, 2vw - 2rem, 2.5rem);
-    }
-    body {
-      text-rendering: optimizeSpeed;
-      line-height: 1.6;
-    }
-    h2 {
-      font-weight: 400;
-      padding-block: 20px 12px;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      vertical-align: middle;
-      shape-margin: 1rem;
-      font-style: italic;
-    }
-    * {
-      margin: 0;
-      box-sizing: border-box;
-    }
-    .fw-normal {
-      font-weight: 400;
-    }
-    .fs-2 {
-      font-size: 1.2rem;
-    }
-    .fs-5 {
-      font-size: 2rem;
-    }
-    .sr-only {
-      clip: rect(0 0 0 0);
-      clip-path: inset(50%);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      width: 1px;
-    }
-    .content {
-      margin-inline: auto;
-      max-width: var(--max-width-content);
-      padding-inline: 12px;
-    }
-    .mt-1 {
-      margin-top: 4px;
-    }
-    .mt-3 {
-      margin-top: 12px;
-    }
-    .mt-10 {
-      margin-top: 40px;
-    }
-  </style>
+    <style is:global>
+      :root {
+        --max-width-content: 1200px;
+        --accent: hotpink;
+      }
+      html {
+        font-family: "Zilla Slab", serif;
+        font-size: clamp(1.2rem, 2vw - 2rem, 2.5rem);
+      }
+      body {
+        text-rendering: optimizeSpeed;
+        line-height: 1.6;
+      }
+      h2 {
+        font-weight: 400;
+        padding-block: 20px 12px;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+        shape-margin: 1rem;
+        font-style: italic;
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .fw-normal {
+        font-weight: 400;
+      }
+      .fs-2 {
+        font-size: 1.2rem;
+      }
+      .fs-5 {
+        font-size: 2rem;
+      }
+      .sr-only {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+      .content {
+        margin-inline: auto;
+        max-width: var(--max-width-content);
+        padding-inline: 12px;
+      }
+      .mt-1 {
+        margin-top: 4px;
+      }
+      .mt-3 {
+        margin-top: 12px;
+      }
+      .mt-10 {
+        margin-top: 40px;
+      }
+    </style>
+  </body>
 </html>
