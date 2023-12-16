@@ -36,6 +36,34 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       >
     </div>
 
+    <svg
+      class="hamburger"
+      width="36"
+      height="36"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 5L20 5"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+      <path
+        d="M4 12L20 12"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+      <path
+        d="M4 19L20 19"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+
     <nav>
       <ul>
         <li>
@@ -72,6 +100,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
   header {
     position: fixed;
     top: 0;
+    padding: 4px;
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid var(--accent);
@@ -81,7 +110,13 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
   }
+
+  h1 {
+    font-size: clamp(1rem, 3vw, 3rem);
+  }
+
   .language-switcher {
     align-items: end;
     display: flex;
@@ -91,63 +126,100 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       border: 2px solid black;
     }
   }
-  ul {
-    display: flex;
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--accent);
+      border-radius: 4px;
+    }
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: inline-flex;
     gap: 1em;
 
     & li {
       list-style: none;
     }
-  }
-  nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
 
-  nav li {
-    display: inline-block;
-    margin-left: 40px;
-    padding-top: 23px;
-
-    position: relative;
+    & a {
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
   }
 
-  nav a {
-    color: black;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 14px;
+  @media (width > 800px) {
+    nav {
+      & li {
+        display: inline-block;
+        margin-left: 40px;
+        padding-top: 23px;
+
+        position: relative;
+      }
+
+      & a {
+        font-size: 14px;
+
+        &:hover,
+        &:active {
+          color: #000;
+
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 
-  nav a:hover,
-  nav a.active {
-    color: #000;
-  }
+  @media (width <= 800px) {
+    .hamburger {
+      display: block;
+    }
 
-  nav a::before {
-    content: "";
-    display: block;
-    height: 5px;
-    background-color: var(--accent);
+    nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: var(--header-height);
+      background-color: white;
 
-    position: absolute;
-    top: 0;
-    width: 0;
+      & ul {
+        flex-direction: column;
+        margin-top: 20px;
+      }
 
-    transition: all ease-in-out 250ms;
-  }
+      & li {
+        display: flex;
+        justify-content: center;
+        border: 2px solid black;
+        border-radius: 4px;
+      }
 
-  nav a:hover::before,
-  nav a.active::before {
-    width: 100%;
+      & a {
+        padding: 12px 36px;
+      }
+
+      &.expanded {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
 </style>
 
-<!--<script>-->
-<!--  document.addEventListener("astro:page-load", () => {-->
-<!--    document.querySelector(".hamburger").addEventListener("click", () => {-->
-<!--      document.querySelector(".nav-links").classList.toggle("expanded");-->
-<!--    });-->
-<!--  });-->
-<!--</script>-->
+<script>
+  document.addEventListener("astro:page-load", () => {
+    document.querySelector(".hamburger").addEventListener("click", () => {
+      document.querySelector("nav").classList.toggle("expanded");
+    });
+  });
+</script>
