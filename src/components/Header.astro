@@ -11,7 +11,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
 
 <header>
   <div class="content">
-    <h1 class="fw-normal">Übersetzungsbüro Schuster</h1>
+    <h1>Übersetzungsbüro Schuster</h1>
 
     <div class="language-switcher">
       <a
@@ -103,6 +103,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
 
   h1 {
     font-size: clamp(1rem, 3vw, 3rem);
+    font-weight: var(--font-weight-4);
   }
 
   .language-switcher {
