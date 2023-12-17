@@ -37,12 +37,9 @@ const { title } = Astro.props;
     </main>
     <Footer />
     <style is:global>
-      /* the props */
-      @import "https://unpkg.com/open-props";
-
-      /* optional imports that use the props */
-      /* @import "https://unpkg.com/open-props/normalize.min.css"; */
-      /* @import "https://unpkg.com/open-props/buttons.min.css"; */
+      @import "open-props/style";
+      /* @import "open-props/normalize"; */
+      /* @import "open-props/buttons"; */
 
       :root {
         --max-width-content: 1200px;
