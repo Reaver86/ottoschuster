@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import storyblok from "@storyblok/astro";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,12 +10,4 @@ export default defineConfig({
       ro: "de",
     },
   },
-  integrations: [
-    storyblok({
-      accessToken: "4weNQdm02tTvBQKh3qIvywtt",
-      components: {
-        check: "components/Check",
-      },
-    }),
-  ],
 });
