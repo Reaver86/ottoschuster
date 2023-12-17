@@ -34,6 +34,13 @@ const { title } = Astro.props;
     </main>
     <Footer />
     <style is:global>
+      /* the props */
+      @import "https://unpkg.com/open-props";
+
+      /* optional imports that use the props */
+      @import "https://unpkg.com/open-props/normalize.min.css";
+      @import "https://unpkg.com/open-props/buttons.min.css";
+
       :root {
         --max-width-content: 1200px;
         --accent: hotpink;
@@ -64,6 +71,9 @@ const { title } = Astro.props;
         vertical-align: middle;
         shape-margin: 1rem;
         font-style: italic;
+      }
+      svg {
+        pointer-events: none;
       }
       .fw-normal {
         font-weight: 400;
