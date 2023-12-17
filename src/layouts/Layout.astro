@@ -37,7 +37,14 @@ const { title } = Astro.props;
       :root {
         --max-width-content: 1200px;
         --accent: hotpink;
-        --header-height: 75px;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
       }
       html {
         font-family: "Zilla Slab", serif;
@@ -57,10 +64,6 @@ const { title } = Astro.props;
         vertical-align: middle;
         shape-margin: 1rem;
         font-style: italic;
-      }
-      * {
-        margin: 0;
-        box-sizing: border-box;
       }
       .fw-normal {
         font-weight: 400;
