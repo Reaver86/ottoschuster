@@ -8,7 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "prettier:check": "prettier -c .",
-    "test": "npx playwright test",
+    "test": "npx playwright test --ui",
     "test:report": "npx playwright show-report"
   },
   "devDependencies": {
