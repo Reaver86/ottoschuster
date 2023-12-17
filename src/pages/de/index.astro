@@ -35,7 +35,7 @@ import Check from "../../components/Check.astro";
       auf "Dolmetscher und Übersetzer suchen", geben Sie Schuster und Otto ein,
       klicken Sie auf "Suchen" und danach auf "Schuster".
     </p>
-    <p style="clear:left" class="fs-2">
+    <p style="clear:left" class="fs-3">
       Dipl.-Ing., Dipl.-Gewerbelehrer, beeidigter Urkundenübersetzer Otto
       Schuster
     </p>
@@ -186,7 +186,13 @@ import Check from "../../components/Check.astro";
   .img-otto {
     float: left;
   }
+  .fs-3 {
+    font-size: var(--font-size-3);
+  }
+  .mt-3 {
+    margin-block-start: var(--size-3);
+  }
   p + p {
-    margin-top: 16px;
+    margin-block-start: var(--size-3);
   }
 </style>

@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title="Preise ottoschuster.de">
   <section class="content" style="margin-top: 75px">
-    <h2 class="fs-5">Preise</h2>
+    <h2>Preise</h2>
     <p>
       Alle Preise in der Tabelle sind Nettopreise, d.h. es kommen noch 19%
       Mehrwertsteuer hinzu.
@@ -14,6 +14,9 @@ import Layout from "../../layouts/Layout.astro";
 </Layout>
 
 <style>
+  h2 {
+    font-size: var(--font-size-5);
+  }
   p + p {
     margin-top: 16px;
   }

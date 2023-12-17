@@ -88,17 +88,17 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
   header {
     position: fixed;
     top: 0;
-    padding: 4px;
+    padding: var(--size-1);
     width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid var(--accent);
+    z-index: var(--layer-1);
+    border-bottom: var(--border-size-1) solid var(--accent);
     background-color: white;
   }
   .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    gap: var(--size-3);
   }
 
   h1 {
@@ -109,10 +109,10 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
   .language-switcher {
     align-items: end;
     display: flex;
-    gap: 4px;
+    gap: var(--size-1);
 
     & .active {
-      border: 2px solid black;
+      border: var(--border-size-2) solid black;
     }
   }
 
@@ -156,9 +156,9 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
 
     &:hover {
       background-color: var(--accent);
-      border-radius: 4px;
+      border-radius: var(--radius-2);
       & svg {
-        padding: 4px;
+        padding: var(--size-1);
       }
     }
   }
@@ -170,7 +170,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       list-style: none;
 
       display: inline-flex;
-      gap: 1em;
+      gap: var(--size-3);
     }
 
     & li {
@@ -195,7 +195,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       }
 
       & a {
-        font-size: 14px;
+        font-size: var(--font-size-0);
 
         &::before {
           content: "";
@@ -229,7 +229,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       position: fixed;
       top: 100px;
       right: -300px;
-      padding: 20px;
+      padding: var(--size-4);
       background-color: white;
       opacity: 0.9;
       transition: right 300ms ease-in-out;
@@ -240,11 +240,11 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
 
       & li {
         border: 2px solid black;
-        border-radius: 4px;
+        border-radius: var(--radius-2);
       }
 
       & a {
-        padding: 12px 36px;
+        padding: var(--size-3) var(--size-7);
         user-select: none;
         display: flex;
         width: 200px;
