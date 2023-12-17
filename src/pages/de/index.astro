@@ -9,12 +9,12 @@ import otto from "../../images/otto.webp";
 import Check from "../../components/Check.astro";
 ---
 
-<Layout title="Übersetzungsbüro Schuster">
+<Layout title="Übersetzungen Rumänisch Deutsch">
   <Image
     class="img-bg"
     src={rumaenischeBerge}
     alt="Muntii Bucegi"
-    widths={[500, rumaenischeBerge.width]}
+    widths={[700, rumaenischeBerge.width]}
   />
   <section class="content">
     <Image class="img-otto" src={otto} alt="Otto Schuster" width="300" />
@@ -180,12 +180,11 @@ import Check from "../../components/Check.astro";
   .img-bg {
     width: 100vw;
     object-fit: cover;
+    min-height: 250px;
+    max-height: 450px;
   }
   .img-otto {
     float: left;
-  }
-  p {
-    text-wrap: balance;
   }
   p + p {
     margin-top: 16px;
