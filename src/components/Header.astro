@@ -7,6 +7,10 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 
 const localeIsRomanian = Astro.url.pathname.includes("/ro/");
 const pathWithoutLocale = Astro.url.pathname.split("/")[2];
+
+// how to deal with language?
+// save selected language in local storage
+// when retrieving which language should be selected -> first check local storage, then check if system/browser language is romanian, otherwise go for german
 ---
 
 <header>
