@@ -16,12 +16,12 @@
     "open-props": "2.0.0-beta.1"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.3.2",
+    "@astrojs/check": "0.3.4",
     "@playwright/test": "^1.40.1",
     "@types/node": "^20.10.4",
-    "astro": "4.0.6",
+    "astro": "4.0.7",
     "prettier": "^3.1.0",
-    "prettier-plugin-astro": "^0.12.2",
+    "prettier-plugin-astro": "0.12.2",
     "typescript": "^5.2.2"
   }
 }
