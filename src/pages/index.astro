@@ -7,6 +7,16 @@ import { Image } from "astro:assets";
 import rumaenischeBerge from "../images/muntii-bucegi.webp";
 import otto from "../images/otto.webp";
 import Check from "../components/Check.astro";
+
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const storyblokApi = useStoryblokApi();
+// const { data } = await storyblokApi.get("cdn/stories/home", {
+//   version: "draft",
+// });
+//
+// const story = data.story;
 ---
 
 <Layout title="Übersetzungen Rumänisch Deutsch">

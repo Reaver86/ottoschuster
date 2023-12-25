@@ -6,7 +6,14 @@ import rumänienFlagge from "../images/rumänien_flagge.webp";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 const localeIsRomanian = Astro.url.pathname.includes("/ro/");
-const pathWithoutLocale = Astro.url.pathname.split("/")[2];
+const baseString = "ottoschuster";
+const indexAfterBaseUrl =
+  Astro.url.pathname.indexOf(baseString) + baseString.length + 1;
+const stringAfterBaseUrl = Astro.url.pathname.substring(indexAfterBaseUrl);
+const currentRoute = localeIsRomanian
+  ? stringAfterBaseUrl.substring(3)
+  : stringAfterBaseUrl;
+const currentLocale = Astro.url.pathname.includes("/ro/") ? "ro" : "de";
 
 // how to deal with language?
 // save selected language in local storage
@@ -20,8 +27,8 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
     <div class="language-switcher">
       <a
         id="de"
-        class={!localeIsRomanian ? "active" : ""}
-        href={getRelativeLocaleUrl("de", pathWithoutLocale)}
+        class={localeIsRomanian ? "" : "active"}
+        href={getRelativeLocaleUrl("de", currentRoute)}
         ><Image
           src={deutschlandFlagge}
           alt="Zu deutscher Sprache wechseln"
@@ -31,7 +38,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       <a
         id="ro"
         class={localeIsRomanian ? "active" : ""}
-        href={getRelativeLocaleUrl("ro", pathWithoutLocale)}
+        href={getRelativeLocaleUrl("ro", currentRoute)}
         ><Image
           src={rumänienFlagge}
           alt="Zu rumänischer Sprache wechseln"
@@ -60,27 +67,20 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       <ul>
         <li>
           <a
-            class={pathWithoutLocale === "" ? "active" : ""}
-            href={getRelativeLocaleUrl(localeIsRomanian ? "ro" : "de", "")}
-            >Startseite</a
+            class={currentRoute === "" ? "active" : ""}
+            href={getRelativeLocaleUrl(currentLocale, "")}>Startseite</a
           >
         </li>
         <li>
           <a
-            class={pathWithoutLocale === "preise" ? "active" : ""}
-            href={getRelativeLocaleUrl(
-              pathWithoutLocale === "preise" ? "ro" : "de",
-              "preise",
-            )}>Preise</a
+            class={currentRoute === "preise/" ? "active" : ""}
+            href={getRelativeLocaleUrl(currentLocale, "preise")}>Preise</a
           >
         </li>
         <li>
           <a
-            class={pathWithoutLocale === "kontakt" ? "active" : ""}
-            href={getRelativeLocaleUrl(
-              pathWithoutLocale === "kontakt" ? "ro" : "de",
-              "kontakt",
-            )}>Kontakt</a
+            class={currentRoute === "kontakt/" ? "active" : ""}
+            href={getRelativeLocaleUrl(currentLocale, "kontakt")}>Kontakt</a
           >
         </li>
       </ul>
@@ -102,7 +102,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--size-3);
+    gap: var(--size-2);
   }
 
   h1 {
@@ -112,6 +112,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
 
   .language-switcher {
     align-items: end;
+    flex-shrink: 0;
     display: flex;
     gap: var(--size-1);
 
@@ -212,8 +213,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
           transition: all ease-in-out 250ms;
         }
 
-        &:hover,
-        &:active {
+        &:hover {
           &::before {
             width: 100%;
           }
