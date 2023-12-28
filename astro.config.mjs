@@ -19,7 +19,8 @@ export default defineConfig({
     storyblok({
       accessToken: "4weNQdm02tTvBQKh3qIvywtt",
       components: {
-        check: "components/Check",
+        page: "storyblok/Page",
+        check: "storyblok/Check",
       },
     }),
   ],

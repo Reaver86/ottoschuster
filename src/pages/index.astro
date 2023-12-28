@@ -12,11 +12,13 @@ import { useStoryblokApi } from "@storyblok/astro";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 
 const storyblokApi = useStoryblokApi();
-// const { data } = await storyblokApi.get("cdn/stories/home", {
-//   version: "draft",
-// });
-//
-// const story = data.story;
+const { data } = await storyblokApi.get("cdn/stories/startseite", {
+  version: "draft",
+});
+
+const content = data.story.content;
+
+console.log("content: ", content);
 ---
 
 <Layout title="Übersetzungen Rumänisch Deutsch">
@@ -49,6 +51,10 @@ const storyblokApi = useStoryblokApi();
       Dipl.-Ing., Dipl.-Gewerbelehrer, beeidigter Urkundenübersetzer Otto
       Schuster
     </p>
+
+    {content.text}
+
+    <StoryblokComponent blok={content} />
 
     <Check
       text="Gerne übersetze ich Ihre Urkunden, Diplome, Ledigkeitsbescheinigungen, Arbeitsbücher, Bestätigungen, Scheidungsurteile, Verträge oder sonstige Dokumente aus dem Rumänischen ins Deutsche oder umgekehrt."
