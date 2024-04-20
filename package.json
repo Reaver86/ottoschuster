@@ -12,16 +12,16 @@
     "test:report": "npx playwright show-report"
   },
   "dependencies": {
-    "@storyblok/astro": "4.0.0",
-    "open-props": "2.0.0-beta.1"
+    "@storyblok/astro": "4.0.4",
+    "open-props": "2.0.0-beta.5"
   },
   "devDependencies": {
-    "@astrojs/check": "0.3.4",
-    "@playwright/test": "1.40.1",
-    "@types/node": "20.10.5",
-    "astro": "4.0.7",
-    "prettier": "3.1.1",
-    "prettier-plugin-astro": "0.12.2",
-    "typescript": "^5.2.2"
+    "@astrojs/check": "0.5.10",
+    "@playwright/test": "1.43.1",
+    "@types/node": "20.12.7",
+    "astro": "4.6.3",
+    "prettier": "3.2.5",
+    "prettier-plugin-astro": "0.13.0",
+    "typescript": "5.4.5"
   }
 }
