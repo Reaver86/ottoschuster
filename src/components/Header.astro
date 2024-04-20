@@ -6,18 +6,29 @@ import rumänienFlagge from "../images/rumänien_flagge.webp";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 const localeIsRomanian = Astro.url.pathname.includes("/ro/");
-const pathWithoutLocale = Astro.url.pathname.split("/")[2];
+const baseString = "ottoschuster";
+const indexAfterBaseUrl =
+  Astro.url.pathname.indexOf(baseString) + baseString.length + 1;
+const stringAfterBaseUrl = Astro.url.pathname.substring(indexAfterBaseUrl);
+const currentRoute = localeIsRomanian
+  ? stringAfterBaseUrl.substring(3)
+  : stringAfterBaseUrl;
+const currentLocale = Astro.url.pathname.includes("/ro/") ? "ro" : "de";
+
+// how to deal with language?
+// save selected language in local storage
+// when retrieving which language should be selected -> first check local storage, then check if system/browser language is romanian, otherwise go for german
 ---
 
 <header>
   <div class="content">
-    <h1 class="fw-normal">Übersetzungsbüro Schuster</h1>
+    <h1>Übersetzungsbüro Schuster</h1>
 
     <div class="language-switcher">
       <a
         id="de"
-        class={!localeIsRomanian ? "active" : ""}
-        href={getRelativeLocaleUrl("de", pathWithoutLocale)}
+        class={localeIsRomanian ? "" : "active"}
+        href={getRelativeLocaleUrl("de", currentRoute)}
         ><Image
           src={deutschlandFlagge}
           alt="Zu deutscher Sprache wechseln"
@@ -27,7 +38,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       <a
         id="ro"
         class={localeIsRomanian ? "active" : ""}
-        href={getRelativeLocaleUrl("ro", pathWithoutLocale)}
+        href={getRelativeLocaleUrl("ro", currentRoute)}
         ><Image
           src={rumänienFlagge}
           alt="Zu rumänischer Sprache wechseln"
@@ -56,27 +67,20 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       <ul>
         <li>
           <a
-            class={pathWithoutLocale === "" ? "active" : ""}
-            href={getRelativeLocaleUrl(localeIsRomanian ? "ro" : "de", "")}
-            >Startseite</a
+            class={currentRoute === "" ? "active" : ""}
+            href={getRelativeLocaleUrl(currentLocale, "")}>Startseite</a
           >
         </li>
         <li>
           <a
-            class={pathWithoutLocale === "preise" ? "active" : ""}
-            href={getRelativeLocaleUrl(
-              pathWithoutLocale === "preise" ? "ro" : "de",
-              "preise",
-            )}>Preise</a
+            class={currentRoute === "preise/" ? "active" : ""}
+            href={getRelativeLocaleUrl(currentLocale, "preise")}>Preise</a
           >
         </li>
         <li>
           <a
-            class={pathWithoutLocale === "kontakt" ? "active" : ""}
-            href={getRelativeLocaleUrl(
-              pathWithoutLocale === "kontakt" ? "ro" : "de",
-              "kontakt",
-            )}>Kontakt</a
+            class={currentRoute === "kontakt/" ? "active" : ""}
+            href={getRelativeLocaleUrl(currentLocale, "kontakt")}>Kontakt</a
           >
         </li>
       </ul>
@@ -88,30 +92,32 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
   header {
     position: fixed;
     top: 0;
-    padding: 4px;
+    padding: var(--size-1);
     width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid var(--accent);
+    z-index: var(--layer-1);
+    border-bottom: var(--border-size-1) solid var(--accent);
     background-color: white;
   }
   .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    gap: var(--size-2);
   }
 
   h1 {
     font-size: clamp(1rem, 3vw, 3rem);
+    font-weight: var(--font-weight-4);
   }
 
   .language-switcher {
     align-items: end;
+    flex-shrink: 0;
     display: flex;
-    gap: 4px;
+    gap: var(--size-1);
 
     & .active {
-      border: 2px solid black;
+      border: var(--border-size-2) solid black;
     }
   }
 
@@ -155,9 +161,9 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
 
     &:hover {
       background-color: var(--accent);
-      border-radius: 4px;
+      border-radius: var(--radius-2);
       & svg {
-        padding: 4px;
+        padding: var(--size-1);
       }
     }
   }
@@ -169,7 +175,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       list-style: none;
 
       display: inline-flex;
-      gap: 1em;
+      gap: var(--size-3);
     }
 
     & li {
@@ -194,7 +200,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       }
 
       & a {
-        font-size: 14px;
+        font-size: var(--font-size-0);
 
         &::before {
           content: "";
@@ -207,8 +213,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
           transition: all ease-in-out 250ms;
         }
 
-        &:hover,
-        &:active {
+        &:hover {
           &::before {
             width: 100%;
           }
@@ -228,7 +233,7 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
       position: fixed;
       top: 100px;
       right: -300px;
-      padding: 20px;
+      padding: var(--size-4);
       background-color: white;
       opacity: 0.9;
       transition: right 300ms ease-in-out;
@@ -239,11 +244,11 @@ const pathWithoutLocale = Astro.url.pathname.split("/")[2];
 
       & li {
         border: 2px solid black;
-        border-radius: 4px;
+        border-radius: var(--radius-2);
       }
 
       & a {
-        padding: 12px 36px;
+        padding: var(--size-3) var(--size-7);
         user-select: none;
         display: flex;
         width: 200px;

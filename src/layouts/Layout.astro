@@ -19,7 +19,7 @@ const { title } = Astro.props;
       content="Übersetzungsbüro Schuster Rumänisch Deutsch"
     />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/ottoschuster/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,78 +37,62 @@ const { title } = Astro.props;
     </main>
     <Footer />
     <style is:global>
-      /* the props */
-      @import "https://unpkg.com/open-props";
+      /* establish a layer order up-front, from lowest to highest priority */
+      @layer open-props, global-styles;
 
-      /* optional imports that use the props */
-      @import "https://unpkg.com/open-props/normalize.min.css";
-      @import "https://unpkg.com/open-props/buttons.min.css";
+      @import "open-props/style" layer(open-props);
 
-      :root {
-        --max-width-content: 1200px;
-        --accent: hotpink;
-      }
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-      * {
-        margin: 0;
-      }
-      html {
-        font-family: "Zilla Slab", serif;
-        font-size: clamp(1.2rem, 2vw - 2rem, 2.5rem);
-      }
-      body {
-        text-rendering: optimizeSpeed;
-        line-height: 1.6;
-      }
-      h2 {
-        font-weight: 400;
-        padding-block: 20px 12px;
-      }
-      img {
-        max-width: 100%;
-        height: auto;
-        vertical-align: middle;
-        shape-margin: 1rem;
-        font-style: italic;
-      }
-      svg {
-        pointer-events: none;
-      }
-      .fw-normal {
-        font-weight: 400;
-      }
-      .fs-2 {
-        font-size: 1.2rem;
-      }
-      .fs-5 {
-        font-size: 2rem;
-      }
-      .sr-only {
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-        height: 1px;
-        overflow: hidden;
-        position: absolute;
-        white-space: nowrap;
-        width: 1px;
-      }
-      .content {
-        margin-inline: auto;
-        max-width: var(--max-width-content);
-        padding-inline: 12px;
-      }
-      .mt-1 {
-        margin-top: 4px;
-      }
-      .mt-3 {
-        margin-top: 12px;
-      }
-      .mt-10 {
-        margin-top: 40px;
+      @layer global-styles {
+        :root {
+          --max-width-content: 1200px;
+          --accent: hotpink;
+        }
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+        }
+        * {
+          margin: 0;
+        }
+        html {
+          font-family: "Zilla Slab", serif;
+          font-size: clamp(1.2rem, 2vw - 2rem, 2.5rem);
+        }
+        body {
+          text-rendering: optimizeSpeed;
+          line-height: var(--font-lineheight-3);
+        }
+        h2 {
+          font-weight: var(--font-weight-4);
+          padding-block-start: var(--size-4);
+          padding-block-end: var(--size-3);
+          text-wrap: balance;
+        }
+        img {
+          max-width: 100%;
+          height: auto;
+          vertical-align: middle;
+          shape-margin: 1rem;
+          font-style: italic;
+        }
+        svg {
+          pointer-events: none;
+        }
+        .sr-only {
+          clip: rect(0 0 0 0);
+          clip-path: inset(50%);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          white-space: nowrap;
+          width: 1px;
+        }
+        .content {
+          margin-inline: auto;
+          max-width: var(--max-width-content);
+          padding-inline: var(--size-3);
+        }
       }
     </style>
   </body>

@@ -1,13 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 
 import { Image } from "astro:assets";
-import visitenkarte from "../../images/visitenkarte.webp";
+import visitenkarte from "../images/visitenkarte.webp";
 ---
 
 <Layout title="Kontakt Übersetzungsbüro Schuster">
   <section class="content" style="margin-top: 75px">
-    <h2 class="fs-5">Kontakt</h2>
+    <h2>Kontakt</h2>
     <address>
       <svg
         width="24"
@@ -108,7 +108,7 @@ import visitenkarte from "../../images/visitenkarte.webp";
        USt-IdNr.: DE305288111<br />
     </address>
   </section>
-  <section class="content mt-10">
+  <section class="content mt-8">
     <h2>Karte von Schramberg-Sulgen</h2>
   </section>
   <section class="content">
@@ -123,8 +123,14 @@ import visitenkarte from "../../images/visitenkarte.webp";
 </Layout>
 
 <style>
+  h2 {
+    font-size: var(--font-size-5);
+  }
+  .mt-8 {
+    margin-block-start: var(--size-8);
+  }
   address {
-    font-size: 1.2rem;
+    font-size: var(--font-size-3);
 
     & svg {
       position: relative;

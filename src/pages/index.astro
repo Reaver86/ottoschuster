@@ -1,12 +1,24 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Faq from "../../components/Faq.astro";
+import Layout from "../layouts/Layout.astro";
+import Faq from "../components/Faq.astro";
 
 import { Image } from "astro:assets";
 
-import rumaenischeBerge from "../../images/muntii-bucegi.webp";
-import otto from "../../images/otto.webp";
-import Check from "../../components/Check.astro";
+import rumaenischeBerge from "../images/muntii-bucegi.webp";
+import otto from "../images/otto.webp";
+import Check from "../components/Check.astro";
+
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/startseite", {
+  version: "draft",
+});
+
+const content = data.story.content;
+
+console.log("content: ", content);
 ---
 
 <Layout title="Übersetzungen Rumänisch Deutsch">
@@ -35,10 +47,14 @@ import Check from "../../components/Check.astro";
       auf "Dolmetscher und Übersetzer suchen", geben Sie Schuster und Otto ein,
       klicken Sie auf "Suchen" und danach auf "Schuster".
     </p>
-    <p style="clear:left" class="fs-2">
+    <p style="clear:left" class="fs-3">
       Dipl.-Ing., Dipl.-Gewerbelehrer, beeidigter Urkundenübersetzer Otto
       Schuster
     </p>
+
+    {content.text}
+
+    <StoryblokComponent blok={content} />
 
     <Check
       text="Gerne übersetze ich Ihre Urkunden, Diplome, Ledigkeitsbescheinigungen, Arbeitsbücher, Bestätigungen, Scheidungsurteile, Verträge oder sonstige Dokumente aus dem Rumänischen ins Deutsche oder umgekehrt."
@@ -186,7 +202,13 @@ import Check from "../../components/Check.astro";
   .img-otto {
     float: left;
   }
+  .fs-3 {
+    font-size: var(--font-size-3);
+  }
+  .mt-3 {
+    margin-block-start: var(--size-3);
+  }
   p + p {
-    margin-top: 16px;
+    margin-block-start: var(--size-3);
   }
 </style>
